@@ -75,6 +75,8 @@ def add_products(products:Products):
 #     }
     
 # nested pydantic models
+from typing import List
+
 class Country(BaseModel):
     name: str
 
@@ -91,7 +93,7 @@ class User(BaseModel):
     age:int
     email:str
     address:Address
-    hobby: list[Hobby]    
+    hobby: List[Hobby]    
 
 @app.post("/create-user")
 def create_user(user:User):
@@ -99,3 +101,4 @@ def create_user(user:User):
         "message":"user created successfully",
         "data":user
     }
+    
