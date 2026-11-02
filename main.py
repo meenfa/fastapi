@@ -102,3 +102,34 @@ def create_user(user:User):
         "data":user
     }
     
+
+# crud app - Movie Watchlist API
+
+movies = []
+
+class Director(BaseModel):
+    name: str
+    country: str
+    
+class Movie(BaseModel):
+    id: int
+    title: str
+    year:int
+    rating:int
+    isWatched: bool
+    director: Director
+    
+@app.post("/add-movies")
+def add_movies(movie:Movie):
+    return{
+        "message":"Movie added succesfully",
+        "data":movie
+    }
+    
+@app.get("/get-movies")
+def get_movies(movie:Movie):
+    movies.apppend()
+    return{
+        "message":"Movie found succesfully",
+        "data":movies
+    }
