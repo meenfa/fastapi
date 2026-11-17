@@ -259,4 +259,3 @@ def get_user():
 # 200 Ok- fast API automatically returns it
 
 
-
